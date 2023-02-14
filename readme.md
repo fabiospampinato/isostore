@@ -1,25 +1,27 @@
 # IsoStore
 
-A simplistic isomorphic key-value store with a Map-like API for persisting data.
+A simple isomorphic key-value store with a Map-like API for persisting data.
 
-## Backends
+## Features
+
+- All stores run everywhere, they just have different backends under the hood.
+- All stores are not intended for performance-critical use cases, since the entire store is saved when a change is made in it.
+- Store saves are batched automatically within a microtask, so performance is not as bad as it could be.
+- When instantiating multiple stores of the same type and with the same id you'll actually always receive the same instance back.
+- Only alphanumeric store ids are allowed, the library will throw on invalid ids.
+
+## Stores
 
 The following stores are provided:
 
 - `AbstractStore`: A generic store with no backend, for using a custom persistence mechanism.
-- `MemoryStore`: An in-memory store, useful if you don't need persistance, but just want to use the same API.
+- `MemoryStore`: An in-memory store, useful if you don't need persistence, but you want to use the same API.
 - `LocalStore`: A store for persisting data reliably and indefinitely.
   - Node: it will atomically write a file to disk, in a path that depends on your OS.
   - Browser: it will use the `localStorage` API.
 - `SessionStore`: A store per persisting data somewhat unreliably and/or not indefinitely.
-  - Node: it will non-atomically write a temp file to disk, which could be deleted at any time.
+  - Node: it will non-atomically write a temporary file to disk, which could be deleted at any time.
   - Browser: it will use the `sessionStorage` API.
-
-All provided stores are not intended for performance use cases, since the entire store is saved when any change is made in it.
-
-When instantiating multiple stores of the same type and with the same id you'll actually always receive the same instance back.
-
-Only alphanumeric store ids are allowed.
 
 ## Install
 
@@ -57,14 +59,25 @@ const store4 = new MemoryStore ();
 
 // Creating a custom store, with a custom backend
 
-const MY_BACKEND = {
+const MY_BACKEND = { // It's important to define this outside of the store class
   read ( id ) {
     // Return a [string, string][]
   },
   write ( id, entries ) {
-    // Write the entries to disk
+    // Write the entries somewhere
   }
 };
+
+class MyStore extends AbstractStore {
+  constructor ( id ) {
+    super ({
+      id,
+      backend: MY_BACKEND
+    });
+  }
+}
+
+const store5 = new MyStore ( 'my-store' );
 ```
 
 ## License

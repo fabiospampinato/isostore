@@ -1,7 +1,7 @@
 {
   "name": "isostore",
   "repository": "github:fabiospampinato/isostore",
-  "description": "A simplistic isomorphic key-value store with a Map-like API for persisting data.",
+  "description": "A simple isomorphic key-value store with a Map-like API for persisting data.",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/node.js",
@@ -29,7 +29,6 @@
   "dependencies": {
     "atomically": "^2.0.1",
     "memoization-registry": "^1.0.1",
-    "sha1": "^1.1.1",
     "when-exit": "^2.0.0"
   },
   "devDependencies": {
