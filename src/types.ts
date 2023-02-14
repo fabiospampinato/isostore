@@ -1,6 +1,8 @@
 
 /* MAIN */
 
+type Callback = () => void;
+
 type Entry = readonly [
   key: string,
   value: string
@@ -18,4 +20,4 @@ type Options = {
 
 /* EXPORT */
 
-export type {Entry, Backend, Options};
+export type {Callback, Entry, Backend, Options};
