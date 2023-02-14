@@ -1,0 +1,41 @@
+{
+  "name": "isostore",
+  "repository": "github:fabiospampinato/isostore",
+  "description": "A simplistic isomorphic key-value store with a Map-like API for persisting data.",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/node.js",
+  "types": "./dist/node.d.ts",
+  "sideEffects": false,
+  "exports": {
+    "node": "./dist/node.js",
+    "default": "./dist/browser.js"
+  },
+  "scripts": {
+    "clean": "tsex clean",
+    "compile": "tsex compile",
+    "compile:watch": "tsex compile --watch",
+    "test": "tsex test",
+    "test:watch": "tsex test --watch",
+    "prepublishOnly": "tsex prepare"
+  },
+  "keywords": [
+    "isomorphic",
+    "key",
+    "value",
+    "store",
+    "storage"
+  ],
+  "dependencies": {
+    "atomically": "^2.0.1",
+    "memoization-registry": "^1.0.1",
+    "sha1": "^1.1.1",
+    "when-exit": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "fava": "^0.1.2",
+    "tsex": "^2.1.0",
+    "typescript": "^4.9.5"
+  }
+}
