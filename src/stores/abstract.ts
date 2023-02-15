@@ -33,7 +33,7 @@ class AbstractStore extends Map<string, string> {
 
       const {id, backend} = options;
 
-      if ( !/^[a-zA-Z0-9_-]+$/.test ( id ) ) throw new Error ( `Invalid store name: "${id}"` );
+      if ( !/^[a-zA-Z0-9_-]+$/.test ( id ) ) throw new Error ( `Invalid store id: "${id}"` );
 
       const read = () => attempt ( () => backend.read ( id ), [] );
       const write = scheduler.wrap ( () => attempt ( () => backend.write ( id, this.entries () ), null ) );

@@ -17,7 +17,7 @@ The following stores are provided:
 - `AbstractStore`: A generic store with no backend, for using a custom persistence mechanism.
 - `MemoryStore`: An in-memory store, useful if you don't need persistence, but you want to use the same API.
 - `LocalStore`: A store for persisting data reliably and indefinitely.
-  - Node: it will atomically write a file to disk, in a path that depends on your OS.
+  - Node: it will atomically write a file to disk, in a non-temporary path that depends on your OS.
   - Browser: it will use the `localStorage` API.
 - `SessionStore`: A store per persisting data somewhat unreliably and/or not indefinitely.
   - Node: it will non-atomically write a temporary file to disk, which could be deleted at any time.
