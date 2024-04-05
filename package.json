@@ -27,7 +27,7 @@
     "storage"
   ],
   "dependencies": {
-    "atomically": "^2.0.2",
+    "atomically": "^2.0.3",
     "memoization-registry": "^1.0.1",
     "when-exit": "^2.1.1"
   },

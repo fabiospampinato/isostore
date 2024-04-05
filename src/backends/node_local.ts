@@ -5,7 +5,7 @@ import {readFileSync, writeFileSync} from 'atomically';
 import os from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
-import type {WriteOptions} from 'atomically/dist/types';
+import type {WriteOptions} from 'atomically';
 import type {Backend} from '~/types';
 
 /* HELPERS */
